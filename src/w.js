@@ -13,7 +13,13 @@ const extract = {
             state: data.current.condition.text,
             code: data.current.condition.code
         }
-    }, 
+    },
+
+    resetForecast: () => {
+        if (extract.forecastWeather.length !== 0) {
+            extract.forecastWeather = []
+        } else return
+    },
 
     forecast: data => {
         const forecastDays = data.forecast.forecastday

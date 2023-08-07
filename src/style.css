@@ -1,8 +1,19 @@
-#test {
-    height: 100px,
-    
-}
 
 body {
-    background-color: red;
+    background-color: rgb(145, 144, 144);
+    
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+
+}
+
+.container {
+    
+    width: 600px;
+    height: 100px;
+    background-color: aliceblue;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(129, 161, 159);
 }
