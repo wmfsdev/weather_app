@@ -6,20 +6,56 @@
     <title>Weather App</title>
 </head>
 <body>
-    
 
-    <div class="container">
+<div class="header">
+    <div class="search-weather">
         <form action="" id="form">
             <fieldset>
                 <legend>Input Location</legend>
                 <label class="input-location" for="location">
-                <input type="text" id="location" name="location">
+                <input type="text" id="location" name="location" value="london">
             </label>
             <input class="submit-button" type="submit" value="Submit"/>
             </fieldset> 
 
         </form>
+        <template class="current-results">
+        <div class="current-weather">
+            <div class="location"></div>
+            <div class="date"></div>
+            <div class="temperature"></div>
+            <div class="weather-icon"></div>
+        </div>
+    </template>
     </div>
+    <template class="more-results">
+        <div class="more-weather"></div>
+    </template>
+</div>
+
+<template class="forecast-results">
+    <div class="forecast">
+        
+    </div>
+</template>
+    
+
+    <!-- <div class="container">
+    
+        <template class="results">
+            <div class="current">
+                <h2></h2>
+                
+                <img class="test" src="" alt="">
+            </div>
+            <div class="forecast">
+                
+            </div>
+    </template>
+    </div> -->
+
+    
+
 
     <script src="main.js"></script>
 </body>

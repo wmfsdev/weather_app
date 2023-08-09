@@ -6,6 +6,7 @@ const extract = {
 
     current: data => {
         extract.currentWeather = {
+            date: data.forecast.forecastday[0].date,
             location: data.location.name,
             country: data.location.country,
             tempC: data.current.temp_c,
@@ -36,8 +37,8 @@ const extract = {
 
 
     logForecast: () => {
-        // console.log(extract.currentWeather)
-        console.log(extract.forecastWeather)
+        console.log(extract.currentWeather)
+        //console.log(extract.forecastWeather)
     },
 
 

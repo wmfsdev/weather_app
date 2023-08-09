@@ -288,3 +288,5 @@ const conditions = [
 		"icon" : 395
 	}
 ]
+
+export { conditions }

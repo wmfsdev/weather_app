@@ -1,19 +1,92 @@
 
-body {
+/* body {
     background-color: rgb(145, 144, 144);
-    
     display: flex;
     justify-content: center;
     padding-top: 10%;
+} */
 
-}
 
-.container {
-    
+
+/* .container {
+    display: flex;
+    flex-direction: column;
     width: 600px;
-    height: 100px;
+    min-height: 100px;
     background-color: aliceblue;
     border-style: solid;
     border-width: 3px;
     border-color: rgb(129, 161, 159);
+}
+
+.current {
+    display:flex;
+    height: 300px;
+    width: auto;
+    background-color: aliceblue;
+    
+} */
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    padding: 3rem;
+    display: flex;
+    background-color: rgb(112, 165, 147);
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+   display: flex;
+   justify-content: space-between;
+
+    min-width: 350px;
+    min-height: 100px;
+    background-color: aliceblue;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(129, 161, 159);
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+    min-height: 100px;
+    background-color: aliceblue;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(129, 161, 159);
+}
+
+.search-weather {
+    padding: 5px;
+    min-width: 300px;
+    background-color:coral
+}
+
+.more-weather {
+    width: 150px;
+    background-color:rgb(85, 128, 60);
+}
+
+.current-weather {
+    
+    background-color:rgb(85, 128, 60);
+}
+
+.location {
+   
+}
+
+[src url]::before {
+    content: attr(src url)
 }

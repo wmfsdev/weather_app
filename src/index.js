@@ -1,6 +1,6 @@
 import './style.css';
 import { extract } from "./w.js"
-
+import { render } from './dom.js'
 
 
 document.querySelector('#form').addEventListener('submit', async (e) => {
@@ -12,10 +12,14 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
     const data = await searchQuery(location)
     console.log(data) // location input
     extract.resetForecast()
-    // extract.current(data)
+    extract.current(data)
+    console.log()
     extract.forecast(data)
+
+    render.weatherTemplates()
+    render.current(extract.currentWeather)
     
-    // // then do something with extract.forecastWeather array
+
     extract.logForecast()
 })
 
