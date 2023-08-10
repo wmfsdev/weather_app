@@ -1,6 +1,10 @@
 import { conditions } from './weather.js'
 
+import { extract } from './w.js'
+
 const render = {
+
+    
 
     current: cwData => {
         console.log(cwData)
@@ -9,18 +13,27 @@ const render = {
         location.textContent = cwData.location + ", " + cwData.country
 
         const date = document.querySelector('.date')
-        date.textContent = cwData.date
+        date.textContent = extract.formatDate(cwData)
+
+        const condition = document.querySelector('.condition')
+        condition.textContent = cwData.state
 
         const temperature = document.querySelector('.temperature')
-        temperature.textContent = cwData.tempC
+        temperature.textContent = cwData.tempC + "°C"
 
+        const icon = render.iconData(cwData)
         let img = document.createElement('img')
-        img.src = './rain.gif'
-
+        img.src = `https://cdn.weatherapi.com/weather/128x128/${icon}`
+        
         const weatherIcon = document.querySelector('.weather-icon')
         weatherIcon.appendChild(img)
        
       //  render.weatherIcon(cwData)
+    },
+
+    iconData: (data) => {
+        const icon = data.icon.slice(35)
+        return icon
     },
 
     forecast: () => {
@@ -44,15 +57,21 @@ const render = {
     },
 
     forecastDay: () => {
-
+        extract.forecastWeather.forEach((day, index) => {
+            console.log(day)
+            const forecast = document.querySelector('.forecast')
+            const forecastDay = document.createElement('div')
+            forecastDay.className = `day${index}`
+            forecast.appendChild(forecastDay)
+        })
     },
 
-    weatherIcon: (data) => {
-        console.log(Object.values(conditions))
-        const conditionReference = Object.values(conditions).filter(value => value.code === data.code)
-        console.log(conditionReference)
-        document.querySelector('img').attributes
-    }
+    // weatherIcon: (data) => {
+    //     console.log(Object.values(conditions))
+    //     const conditionReference = Object.values(conditions).filter(value => value.code === data.code)
+    //     console.log(conditionReference)
+    //     document.querySelector('img').attributes
+    // }
 
 }
 

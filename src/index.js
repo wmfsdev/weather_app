@@ -9,16 +9,21 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
     const form = document.querySelector('#form')
     const formData = new FormData(form)
     const location = getLocation(formData)
+
     const data = await searchQuery(location)
     console.log(data) // location input
+
     extract.resetForecast()
     extract.current(data)
     console.log()
     extract.forecast(data)
 
     render.weatherTemplates()
+    render.forecastDay()
     render.current(extract.currentWeather)
-    
+
+
+    // render.weatherIcon()
 
     extract.logForecast()
 })

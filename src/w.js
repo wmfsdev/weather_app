@@ -1,8 +1,16 @@
+import { format } from 'date-fns'
 
 const extract = {
 
     currentWeather: {},
     forecastWeather: [],
+
+    formatDate: cwData => {
+        const due = new Date(cwData.date);
+        const formattedDate = format(due, `EEEE do LLL yy`);
+        console.log(formattedDate)
+        return formattedDate
+    },
 
     current: data => {
         extract.currentWeather = {
@@ -12,7 +20,8 @@ const extract = {
             tempC: data.current.temp_c,
             tempF: data.current.temp_f,
             state: data.current.condition.text,
-            code: data.current.condition.code
+            code: data.current.condition.code,
+            icon: data.current.condition.icon
         }
     },
 
