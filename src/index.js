@@ -22,7 +22,6 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
     render.forecastDay()
     render.current(extract.currentWeather)
 
-
     // render.weatherIcon()
 
     extract.logForecast()
@@ -32,7 +31,7 @@ async function searchQuery(location) {
    console.log(location)
    
     try {
-        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=01aeb086078c4e5aaa5160639230208&q=${location}&days=3`, {mode: 'cors'});
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=01aeb086078c4e5aaa5160639230208&q=${location}&days=4`, {mode: 'cors'});
         
         // function that checks error codes
         // if (response.status !== 200) {

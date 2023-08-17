@@ -23,10 +23,7 @@ body {
     justify-content: space-between;
     min-width: 350px;
     min-height: 100px;
-    background-color: aliceblue;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(129, 161, 159);
+    
 }
 
 .forecast {
@@ -42,9 +39,9 @@ body {
 }
 
 .search-weather {
-    padding: 5px;
+    font-size: 1.5rem;
+    
     min-width: 300px;
-    background-color:burlywood
 }
 
 
@@ -68,11 +65,10 @@ fieldset{
     display: flex;
     flex-direction: column;
     gap: 25px;
-    background-color:lightblue
 }
 
 .current-weather > div {
-    padding-left: 10px;
+   
 }
 
 .forecast > div {

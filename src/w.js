@@ -5,9 +5,16 @@ const extract = {
     currentWeather: {},
     forecastWeather: [],
 
-    formatDate: cwData => {
+    formatFullDate: cwData => {
         const due = new Date(cwData.date);
         const formattedDate = format(due, `EEEE do LLL yy`);
+        console.log(formattedDate)
+        return formattedDate
+    },
+
+    formatShortDate: date => {
+        const due = new Date(date);
+        const formattedDate = format(due, `EEEE`);
         console.log(formattedDate)
         return formattedDate
     },
@@ -36,10 +43,13 @@ const extract = {
         forecastDays.forEach(day => extract.forecastWeather.push(extract.dailyForecast(day)))
     }, 
     
-    dailyForecast: (fdata) => {
+    dailyForecast: (fdata) => { // will need to ignore the first indices
+                                // as its the current as well
+        console.log(fdata)
         const test = {
             date: fdata.date,
             maxtempc: fdata.day.maxtemp_c,
+            icon: fdata.day.condition.icon 
         }
         return test
     },
