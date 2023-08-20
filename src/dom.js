@@ -4,9 +4,22 @@ import { extract } from './w.js'
 
 const render = {
 
-    
+    tempToggle: () => {
+        document.querySelector('.temperature').addEventListener('click', (e) => {
 
-    current: cwData => {
+            let temperature = document.querySelector('.temperature')
+
+            if (e.target.dataset.unit === "c") {
+                temperature.textContent = extract.currentWeather.tempF + "°F" 
+                temperature.dataset.unit = "f"
+            } else {
+                temperature.textContent = extract.currentWeather.tempC + "°C" 
+                temperature.dataset.unit = "c"
+            }
+        })
+    },
+
+    current: (cwData) => {
         console.log(cwData)
         
         const location = document.querySelector('.location')
@@ -19,11 +32,17 @@ const render = {
         condition.textContent = cwData.state
 
         const temperature = document.querySelector('.temperature')
+        temperature.dataset.temp = "c"
         temperature.textContent = cwData.tempC + "°C"
+      
+        const test = render.weatherIcon(cwData)
+        console.log(test)
 
-        const icon = render.iconData(cwData)
+        //const icon = render.iconData(cwData)
         let img = document.createElement('img')
-        img.src = `https://cdn.weatherapi.com/weather/128x128/${icon}`
+        img.src = test
+
+// `https://cdn.weatherapi.com/weather/128x128/${icon}`
 
         const weatherIcon = document.querySelector('.weather-icon')
             if (weatherIcon.childNodes.length === 1) {
@@ -33,6 +52,57 @@ const render = {
         weatherIcon.appendChild(img)
        
       //  render.weatherIcon(cwData)
+    },
+
+    weatherIcon: (data) => {
+        const state = data.state
+        console.log(data)
+        if (state.includes("Clear") || state.includes("clear" )) {
+            return '../src/clear.png'
+
+        } else if (state.includes("Sunny") || state.includes("sunny")) {
+            return '../src/sun.png'
+
+        } else if (state.includes("Cloudy") || state.includes("cloudy")) {
+            return '../src/cake.png'
+
+        } else if (state.includes("Rain") || state.includes("rain") || state.includes("drizzle")) {
+            return '../src/cake.png'
+            
+
+        } else if (state.includes("Thunder") || state.includes("thunder") || state.includes("Thundery")) {
+            return '../src/cake.png'
+            
+        } else if (state.includes("Fog") || state.includes("fog") || state.includes("Mist")) {
+            return '../src/cake.png'
+
+        } else if (state.includes("Thunder") || state.includes("thunder")) {
+            return '../src/cake.png'
+            
+        } else if (state.includes("Thunder") || state.includes("thunder")) {
+            return '../src/cake.png'
+            
+        } else if (state.includes("Thunder") || state.includes("thunder")) {
+            return '../src/cake.png'
+            
+        } else if (state.includes("Thunder") || state.includes("thunder")) {
+            return '../src/cake.png'
+            
+        } else if (state.includes("Thunder") || state.includes("thunder")) {
+            return '../src/cake.png'
+            
+        } else if (state.includes("Thunder") || state.includes("thunder")) {
+            return '../src/cake.png'
+            
+        }
+    
+    },
+
+    test: () => {
+         console.log(Object.values(conditions))
+        const conditionReference = Object.values(conditions).filter(value => value.code === data.code)
+        console.log(conditionReference)
+      document.querySelector('img').attributes
     },
 
     iconData: (data) => {
@@ -99,9 +169,6 @@ const render = {
             const icon = document.createElement('img')
             const parent = document.querySelector(`.day${index}`)
             icon.className = "icon"
-            // console.log(render.iconData(day))
-            // iconCode = render.iconData(day)
-            // console.log(iconCode)
             icon.src = `https://cdn.weatherapi.com/weather/128x128/${render.iconData(day)}`
             parent.appendChild(icon)
         })
@@ -118,12 +185,7 @@ const render = {
 
     },
 
-    // weatherIcon: (data) => {
-    //     console.log(Object.values(conditions))
-    //     const conditionReference = Object.values(conditions).filter(value => value.code === data.code)
-    //     console.log(conditionReference)
-    //     document.querySelector('img').attributes
-    // }
+   
 
 }
 

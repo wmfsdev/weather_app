@@ -11,19 +11,16 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
     const location = getLocation(formData)
 
     const data = await searchQuery(location)
-    console.log(data) // location input
 
     extract.resetForecast()
     extract.current(data)
-    console.log()
     extract.forecast(data)
-
+    console.log(data)
     render.weatherTemplates()
     render.forecastDay()
     render.current(extract.currentWeather)
-
-    // render.weatherIcon()
-
+   render.test()
+    render.tempToggle()
     extract.logForecast()
 })
 
@@ -45,9 +42,7 @@ async function searchQuery(location) {
     }
 }
 
-
 function getLocation(formData) {
    const test = formData.get('location')
    return test
-}   
-
+}

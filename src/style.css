@@ -13,18 +13,20 @@ body {
     min-height: 100vh;
     padding: 3rem;
     display: flex;
-    background-color: rgb(112, 165, 147);
+    /* background-color: rgb(112, 165, 147); */
     flex-direction: column;
     justify-content: space-between;
+    background-image: url("../src/splash.jpeg");
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-evenly; */
     min-width: 350px;
     min-height: 100px;
     
 }
+
 
 .forecast {
     display: flex;
@@ -40,8 +42,7 @@ body {
 
 .search-weather {
     font-size: 1.5rem;
-    
-    min-width: 300px;
+    min-width: 200px;
 }
 
 
@@ -56,19 +57,23 @@ fieldset{
 }
 
 .more-weather {
-    width: 150px;
+    min-width: 150px;
     background-color:rgb(85, 128, 60);
+    margin-left: auto;
 }
 
 .current-weather {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
 }
 
 .current-weather > div {
-   
+   margin-bottom: 20px;
+}
+.current-weather .temperature, 
+.current-weather .weather-icon {
+    margin-bottom: 0px;;
 }
 
 .forecast > div {
@@ -83,16 +88,7 @@ fieldset{
     font-size: 2rem;
 }
 
-.location {
-   
-}
-
-.weather-icon {
-    display: flex;
-    align-items: center;
-}
-
-img {
-    height: 100px;
-    width: 100px;
+.weather-icon img {
+    max-height: 400px;
+    max-width: 400px;
 }

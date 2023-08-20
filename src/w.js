@@ -7,14 +7,14 @@ const extract = {
 
     formatFullDate: cwData => {
         const due = new Date(cwData.date);
-        const formattedDate = format(due, `EEEE do LLL yy`);
+        const formattedDate = format(due, `EEEE do LLL`);
         console.log(formattedDate)
         return formattedDate
     },
 
     formatShortDate: date => {
         const due = new Date(date);
-        const formattedDate = format(due, `EEEE`);
+        const formattedDate = format(due, `EEEE do`);
         console.log(formattedDate)
         return formattedDate
     },
@@ -40,6 +40,7 @@ const extract = {
 
     forecast: data => {
         const forecastDays = data.forecast.forecastday
+        forecastDays.splice(0,1) // don't need "first" day as this is already displayed as current
         forecastDays.forEach(day => extract.forecastWeather.push(extract.dailyForecast(day)))
     }, 
     
@@ -60,9 +61,11 @@ const extract = {
         //console.log(extract.forecastWeather)
     },
 
+}
 
-
-    // filter: data => {
+ export { extract }
+ 
+    //     filter: data => {
     //     const test = data.forecast.forecastday
     //     console.log(test)
 
@@ -97,7 +100,3 @@ const extract = {
     //     return test
     //     //extract.forecastWeather.push(test)
     // },
-
-}
-
- export { extract }
