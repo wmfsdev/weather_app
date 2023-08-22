@@ -47,12 +47,13 @@ const extract = {
     dailyForecast: (fdata) => { // will need to ignore the first indices
                                 // as its the current as well
         console.log(fdata)
-        const test = {
+        const daily = {
             date: fdata.date,
             maxtempc: fdata.day.maxtemp_c,
+            condition: fdata.day.condition.text,
             icon: fdata.day.condition.icon 
         }
-        return test
+        return daily
     },
 
 

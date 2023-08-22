@@ -19,8 +19,7 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
     render.weatherTemplates()
     render.forecastDay()
     render.current(extract.currentWeather)
-   render.test()
-    render.tempToggle()
+   //render.test()
     extract.logForecast()
 })
 
@@ -31,13 +30,15 @@ async function searchQuery(location) {
         const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=01aeb086078c4e5aaa5160639230208&q=${location}&days=4`, {mode: 'cors'});
         
         // function that checks error codes
-        // if (response.status !== 200) {
-        //     throw new Error (response/* create an error for a non-successful fetch */);
-        // }
+        if (response.status !== 200) {
+            throw new Error (response/* create an error for a non-successful fetch */);
+            // "response"
+        }
 
         const data = await response.json();
         return data
     } catch (err) {
+        alert(err)
         console.log(err)
     }
 }

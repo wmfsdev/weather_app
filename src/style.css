@@ -16,7 +16,9 @@ body {
     /* background-color: rgb(112, 165, 147); */
     flex-direction: column;
     justify-content: space-between;
-    background-image: url("../src/splash.jpeg");
+    background-image: url("../src/backg.jpg");
+    background-size: cover;
+    background-position: center center;
 }
 
 .header {
@@ -25,19 +27,6 @@ body {
     min-width: 350px;
     min-height: 100px;
     
-}
-
-
-.forecast {
-    display: flex;
-    justify-content: space-between;
-    min-width: 300px;
-    min-height: 100px;
-    background-color: aliceblue;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(129, 161, 159);
-    padding: 50px;
 }
 
 .search-weather {
@@ -73,18 +62,40 @@ fieldset{
 }
 .current-weather .temperature, 
 .current-weather .weather-icon {
-    margin-bottom: 0px;;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 3rem;
 }
 
-.forecast > div {
-    width: 100px;
-    height: 100px;
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+    min-height: 100px;
+    background-color: aliceblue;
     border-style: solid;
     border-width: 3px;
     border-color: rgb(129, 161, 159);
+    padding: 30px;
 }
 
-.temperature {
+.forecast > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 200px;
+    font-size: 1.2rem;
+}
+
+.current-weather .location {
+    font-size: 1.2rem;
+}
+
+.current-weather .date {
+    font-size: 1.4rem;
+}
+
+.current-weather .condition {
     font-size: 2rem;
 }
 
