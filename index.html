@@ -6,42 +6,40 @@
     <title>Weather App</title>
 </head>
 <body>
-
-<div class="header">
-    <div class="search-weather">
-        
-        <form action="" id="form">
-            <fieldset>
+<div class="query-time"></div>
+<div class="container">
+    <div class="header">
+        <div class="search-weather">
             
-                <label class="input-location" for="location">
-                <input type="text" id="location" name="location" value="london">
-            </label>
-            <input class="submit-button" type="submit" value="Search"/>
-            </fieldset> 
+            <form action="" id="form">
+                <fieldset>
+                    <input type="text" id="location" name="location" value="">
+                    <input class="submit-button" type="submit" value="Search"/>
+                </fieldset> 
 
-        </form>
-        <template class="current-results">
-        <div class="current-weather">
-            <div class="location"></div>
-            <div class="date"></div>
-            <div class="condition"></div>
-            <div class="temperature"></div>
-            
+            </form>
+            <template class="current-results">
+            <div class="current-weather">
+                <div class="location"></div>
+                <div class="time"></div>
+                <div class="local-time"></div>
+                <div class="condition"></div>
+                <div class="temperature"></div>
+            </div>
+        </template>
         </div>
-    </template>
+        <template class="more-results">
+            <div class="weather-icon"></div>
+            <!-- <div class="more-weather"></div> -->
+        </template>
     </div>
-    <template class="more-results">
-        <div class="weather-icon"></div>
-        <div class="more-weather"></div>
-    </template>
+    
+        <template class="forecast-results">
+            <div class="forecast">
+
+            </div>
+        </template>
 </div>
-
-<template class="forecast-results">
-    <div class="forecast">
-
-    </div>
-</template>
-
     <script src="main.js"></script>
 </body>
 </html> 
