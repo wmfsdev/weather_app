@@ -2,8 +2,26 @@ import { format } from 'date-fns'
 
 const extract = {
 
+    times: [],
     currentWeather: {},
     forecastWeather: [],
+
+    getLocation: formData => {
+        const test = formData.get('location')
+        return test
+    },
+
+    getTime: () => {
+        const time = performance.now()
+        console.log(time)
+        extract.times.push(time)
+        if (extract.times.length === 2) {
+            const test = extract.times[1] - extract.times[0]
+            console.log(test + ' milliseconds')
+            extract.times = []
+            return test
+        } else return
+    },
 
     formatFullDate: cwData => {
         const due = new Date(cwData.date);
@@ -19,16 +37,26 @@ const extract = {
         return formattedDate
     },
 
+    formatTime: date => {
+        const time = new Date(date)
+        const formattedTime = format(time, `p`)
+        console.log(formattedTime)
+        return formattedTime
+    },
+
     current: data => {
+       
         extract.currentWeather = {
             date: data.forecast.forecastday[0].date,
             location: data.location.name,
             country: data.location.country,
+            localTime: data.location.localtime,
+            dayStatus: data.current.is_day,
             tempC: data.current.temp_c,
             tempF: data.current.temp_f,
             state: data.current.condition.text,
             code: data.current.condition.code,
-            icon: data.current.condition.icon
+          //  icon: data.current.condition.icon
         }
     },
 
@@ -55,49 +83,6 @@ const extract = {
         }
         return daily
     },
-
-
-    logForecast: () => {
-        console.log(extract.currentWeather)
-        //console.log(extract.forecastWeather)
-    },
-
 }
 
- export { extract }
- 
-    //     filter: data => {
-    //     const test = data.forecast.forecastday
-    //     console.log(test)
-
-    //     const userNames = Object.keys(test)
-    //         .filter((key) => key.includes("date"))
-    //         .reduce((object, key) => {
-    //             return Object.assign(object, {
-    //             [key]: test[key]
-    //             });
-    //     }, {});
-
-    //     console.log(userNames);
-    // },
-
-    // forecast: data => {
-    // // data.forecast.forecastday.forEach(day => extract.dailyForecast(day))
-    //     const forecast = data.forecast.forecastday
-    //         for ( let i = 0 ; i < forecast.length ; i++) {
-    //             //const test =    
-    //             extract.forecastWeather.push(extract.dailyForecast(forecast, i))
-    //            // extract.forecastWeather.push(test)
-    //         }
-    // }, 
-
-    // dailyForecast: (fdata, index) => {
-    //     console.log(fdata)
-    //     const test = {
-    //         date: fdata[index].date,
-    //         maxtempc: fdata[index].day.maxtemp_c,
-    //         condition: fdata[index].day.condition.text
-    //     }
-    //     return test
-    //     //extract.forecastWeather.push(test)
-    // },
+export { extract }
