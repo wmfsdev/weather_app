@@ -1,7 +1,6 @@
 import './style.css';
-import { extract } from "./w.js"
+import { extract } from "./weather.js"
 import { render } from './dom.js'
-
 
 document.querySelector('#form').addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -14,12 +13,10 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
     render.queryTime(performance)
     extract.resetForecast()
     extract.current(data)
-    console.log(extract.currentWeather)
     extract.forecast(data)
     render.weatherTemplates()
     render.current(extract.currentWeather)
     render.forecastDay()
-    
 })
 
 async function searchQuery(location) {
@@ -27,7 +24,6 @@ async function searchQuery(location) {
    
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=24200e92333f4ded9a0184300232308&q=${location}&days=7`, {mode: 'cors'});
-
         if (response.status !== 200) {
             throw new Error (response/* create an error for a non-successful fetch */);
             // "response"
@@ -39,4 +35,3 @@ async function searchQuery(location) {
         validSearch.value = "Please Enter Valid Location"
     }
 }
-

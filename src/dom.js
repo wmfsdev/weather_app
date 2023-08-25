@@ -1,6 +1,5 @@
- import { conditions } from './weather.js'
 
-import { extract } from './w.js'
+import { extract } from './weather.js'
 
 const render = {
 
@@ -17,21 +16,18 @@ const render = {
                 currentTemp.textContent = extract.currentWeather.tempF + "°F" 
                 currentTemp.dataset.unit = "f"
 
-                forecastTemp.forEach(ele => ele.textContent = extract.currentWeather.tempF + "°F" )
+                forecastTemp.forEach((ele, index) => ele.textContent = extract.forecastWeather[index].maxtempf + "°F")
                 forecastTemp.forEach(ele => ele.dataset.unit = "f")
             } else {
-                currentTemp.textContent = extract.currentWeather.tempC + "°C" 
+                currentTemp.textContent = extract.currentWeather.tempC + "°C"
                 currentTemp.dataset.unit = "c"
 
-                forecastTemp.forEach(ele => ele.textContent = extract.currentWeather.tempC + "°C")
+                forecastTemp.forEach((ele, index) => ele.textContent = extract.forecastWeather[index].maxtempc + "°C")
                 forecastTemp.forEach(ele => ele.dataset.unit = "c")
             }
     },
- 
-    current: (cwData) => {
-        console.log(cwData)
-        
-       
+
+    current: cwData => {
         const local = document.querySelector('.local-time')
         local.textContent = extract.formatTime(cwData.localTime)
 
@@ -50,7 +46,6 @@ const render = {
         temperature.addEventListener('click', render.tempToggle)
 
         const icon = render.weatherIcon(cwData.state, cwData.localTime)
-        
         let img = document.createElement('img')
         img.src = icon
 
@@ -62,7 +57,7 @@ const render = {
         weatherIcon.appendChild(img)
     },
 
-    weatherIcon: (state) => {
+    weatherIcon: state => {
 
         if (state.includes("Clear") || state.includes("clear" )) {
             return '../src/images/clear.png'
@@ -95,17 +90,6 @@ const render = {
         }
     },
 
-    test: () => {
-        console.log(Object.values(conditions))
-        const conditionReference = Object.values(conditions).filter(value => value.code === data.code)
-        console.log(conditionReference)
-    },
-
-    iconData: (data) => {
-        const icon = data.icon.slice(35)
-        return icon
-    },
-
     weatherTemplates: () => {
         if (document.querySelector('.forecast') === null) {
             // forecast
@@ -132,8 +116,6 @@ const render = {
 
         // days/divs
         extract.forecastWeather.forEach((day, index) => {
-            console.log(day)
-            console.log(index)
             const forecast = document.querySelector('.forecast')
             const forecastDay = document.createElement('div')
             forecastDay.className = `day${index}`
@@ -164,20 +146,16 @@ const render = {
             condition.textContent = day.condition
             dayIndex.appendChild(condition)
         })
-
-       // weather icon
+        // weather icon
         extract.forecastWeather.forEach((day, index) => {
             const icon = document.createElement('img')
             const parent = document.querySelector(`.day${index}`)
             icon.className = "icon"  
-                console.log(day)
             const png = render.weatherIcon(day.condition)
-      
             icon.src = png
             parent.appendChild(icon)
         })
     },
 }
-
 
 export { render }

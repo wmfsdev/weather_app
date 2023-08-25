@@ -171,7 +171,6 @@ fieldset {
 }
 
 .current-weather .temperature:hover {
-    color: rgb(119, 158, 150);
     cursor: pointer
 } 
 
