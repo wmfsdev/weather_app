@@ -1,4 +1,4 @@
-# weather_app
+# Weather App
 
 + live: https://wmfsdev.github.io/weather_app/
 + repo: https://github.com/wmfsdev/weather_app
@@ -9,7 +9,7 @@ An enjoyable project, but surprisingly figuring out how to use the weather API
 as part of an async function was relatively straight-forward. The trickier part was simply organising the returned information for both components of
 the app: the 'current' weather and the 'forecast' weather.
 
-# Optional
+# optional
 
 > add a ‘loading’ component that displays from the time the form is submitted until the information comes back from the API
 
