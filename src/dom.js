@@ -60,15 +60,15 @@ const render = {
     weatherIcon: state => {
 
         if (state.includes("Clear") || state.includes("clear" )) {
-            return '../src/images/clear.png'
+            return './images/clear.png'
 
         } else if (state.includes("Sunny") || state.includes("sunny")) {
             return '../src/images/sun.png'
 
         } else if (state.includes("Cloudy") || state.includes("cloudy")) {
             if (extract.currentWeather.dayStatus === 0) {
-                return '../src/images/cloudy_night.png'
-            } else return '../src/images/cloudy.png'
+                return './images/cloudy_night.png'
+            } else return './images/cloudy.png'
 
         } else if (state.includes("Rain") || state.includes("rain") || state.includes("drizzle")) {
             return '../src/images/rain.png'
