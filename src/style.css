@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
-
 * {
     margin: 0px;
     padding: 0px;
@@ -23,7 +22,7 @@ body {
     padding-top: 3.8rem;
     display: flex;
     justify-content: center;
-    background-image: url("../src/images/backg.jpg");
+    background-image: url('./images/backg.jpg');
     background-size: cover;
     background-position: center center;
 }

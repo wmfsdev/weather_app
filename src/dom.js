@@ -1,4 +1,14 @@
 
+import clear from './images/clear.png'
+import cloudy_night from './images/cloudy_night.png'
+import snow from './images/snow.png'
+import cloudy from './images/cloudy.png'
+import overcast from './images/overcast.png'
+import mist from './images/mist.png'
+import thunder from './images/thunder.png'
+import rain from './images/rain.png'
+import sun from './images/sun.png'
+
 import { extract } from './weather.js'
 
 const render = {
@@ -60,33 +70,33 @@ const render = {
     weatherIcon: state => {
 
         if (state.includes("Clear") || state.includes("clear" )) {
-            return './images/clear.png'
+            return clear
 
         } else if (state.includes("Sunny") || state.includes("sunny")) {
-            return '../src/images/sun.png'
+            return sun
 
         } else if (state.includes("Cloudy") || state.includes("cloudy")) {
             if (extract.currentWeather.dayStatus === 0) {
-                return './images/cloudy_night.png'
-            } else return './images/cloudy.png'
+                return cloudy_night
+            } else return cloudy
 
         } else if (state.includes("Rain") || state.includes("rain") || state.includes("drizzle")) {
-            return '../src/images/rain.png'
+            return rain
             
         } else if (state.includes("Thunder") || state.includes("thunder") || state.includes("Thundery")) {
-            return '../src/images/thunder.png'
+            return thunder
             
         } else if (state.includes("Fog") || state.includes("fog") || state.includes("Mist")) {
-            return '../src/images/mist.png'
+            return mist
 
         } else if (state.includes("Overcast")) {
-            return '../src/images/overcast.png'
+            return overcast
             
         } else if (state.includes("snow") || state.includes("Ice") || state.includes("sleet") || state.includes("Blizzard")) {
-            return '../src/images/snow.png'
+            return snow
             
         } else if (state.includes("Thunder") || state.includes("thunder")) {
-            return '../src/images/cake.png'
+            return thunder
         }
     },
 

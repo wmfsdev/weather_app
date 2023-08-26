@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
 
     new HtmlWebpackPlugin({
-      
       title: 'Weather',
 
     }),
@@ -24,6 +23,13 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(jpg|png|svg|gif)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[hash][ext][query]'
+        }
       },
     ],
   },
